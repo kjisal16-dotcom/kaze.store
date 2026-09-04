@@ -1,0 +1,1 @@
+self.addEventListener('install',e=>e.waitUntil(caches.open('kaze-v1').then(c=>c.addAll(['./','index.html','shop.html','style.css','app.js']))));self.addEventListener('fetch',e=>e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request))));
