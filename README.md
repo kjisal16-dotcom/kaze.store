@@ -1,20 +1,11 @@
-# KAZE STOREZ
+# KAZE STOREZ — PWA build
 
-Premium responsive e-commerce frontend starter.
+This build is ready for GitHub Pages as a static, installable Progressive Web App:
+- Web App Manifest
+- 192px and 512px app icons
+- Service worker with offline fallback and app-shell caching
+- Install prompt when the browser supports it
+- Mobile-friendly standalone display
+- `.nojekyll` for static publishing
 
-## Included
-- Home, Shop, Product Details, Cart, WhatsApp Checkout, Success
-- About, Contact, Shipping, Returns, Privacy, Terms, FAQ
-- Wishlist placeholder
-- Front-end Admin Dashboard prototype
-- Responsive 4-column desktop / 2-column mobile product grid
-- INR pricing and Kerala/India delivery messaging
-- WhatsApp ordering to +91 9946375868
-- English-first UI; Malayalam localization can be added as a switch
-- LocalStorage cart
-
-## Run
-Open `index.html` in a browser, or publish the folder with GitHub Pages.
-
-## Important before production
-Replace demo products/images with real catalogue data, add the supplied KAZE logo in `assets/`, implement secure server-side admin authentication/database/order storage, finalize legal policies, and connect a proper PWA manifest/service worker.
+Important: GitHub Pages is static hosting. A production-secure admin login, database, persistent orders, real-time stock, and payment processing require a backend/service. GitHub Pages itself does not run PHP/Ruby/Python server-side code.

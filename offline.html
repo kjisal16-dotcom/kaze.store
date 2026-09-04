@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#007BFF"><title>KAZE — Offline</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#f7faff;color:#10233f;display:grid;place-items:center;min-height:100vh;text-align:center}
+.card{max-width:520px;margin:24px;padding:36px;border-radius:24px;background:#fff;box-shadow:0 20px 60px #007bff22}
+.logo{width:84px;height:84px;border-radius:22px;background:#007BFF;color:#fff;display:grid;place-items:center;font-size:42px;font-weight:800;margin:0 auto 20px}
+button{border:0;border-radius:999px;background:#007BFF;color:#fff;padding:13px 22px;font-weight:700;cursor:pointer}
+</style><link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#007BFF">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+</head><body><main class="card"><div class="logo">K</div><h1>You’re offline</h1>
+<p>Some cached KAZE STOREZ pages may still be available. Reconnect to continue shopping and place your WhatsApp order.</p>
+<button onclick="location.reload()">Try again</button></main><button data-install-pwa hidden style="position:fixed;right:18px;bottom:82px;z-index:9999;border:0;border-radius:999px;padding:11px 16px;background:#007BFF;color:white;font-weight:700;box-shadow:0 10px 30px #007bff33">Install KAZE App</button>
+<script>
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+}
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt',e=>{
+  e.preventDefault(); deferredPrompt=e;
+  const b=document.querySelector('[data-install-pwa]');
+  if(b){b.hidden=false;b.addEventListener('click',async()=>{
+    b.hidden=true; deferredPrompt.prompt(); await deferredPrompt.userChoice; deferredPrompt=null;
+  },{once:true});}
+});
+</script></body></html>

@@ -1,8 +1,27 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#007BFF"><title>Privacy Policy | KAZE STOREZ</title><link rel="stylesheet" href="style.css"></head><body>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#007BFF"><title>Privacy Policy | KAZE STOREZ</title><link rel="stylesheet" href="style.css"><link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#007BFF">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+</head><body>
 <div class="top">🔥 Up to 50% OFF • Kerala FREE Delivery • All India Delivery ₹120 • WhatsApp Orders</div>
 <header><div class="nav"><a class="logo" href="index.html">KAZE</a><nav><a href="shop.html">Shop</a><a href="index.html#categories">Categories</a><a href="index.html#offers">Offers</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav><div class="search"><input id="search" placeholder="Search products, categories, brands..." oninput="filterProducts()"></div><div class="actions"><a class="icon" href="wishlist.html">♡</a><a class="icon" href="cart.html">🛒 <span class="cart-count">0</span></a><a class="icon" href="https://wa.me/919946375868" target="_blank">💬</a></div></div></header>
 <section class="container"><h1>Privacy Policy</h1><p>KAZE STOREZ may use customer information such as name, phone number and delivery address to process WhatsApp orders and provide support. Do not publish or store information beyond what is necessary for the service.</p></section>
 <a class="btn blue whatsapp" href="https://wa.me/919946375868" target="_blank">💬 WhatsApp</a><div class="toast"></div>
 <div class="bottom"><a href="index.html"><span>⌂</span>Home</a><a href="shop.html"><span>🛍</span>Shop</a><a href="wishlist.html"><span>♡</span>Wishlist</a><a href="cart.html"><span>🛒</span>Cart</a><a href="shop.html"><span>☰</span>Menu</a></div>
 <footer><div class="foot"><div><div class="logo" style="color:#fff">KAZE STOREZ</div><p>Quality You Can Trust.</p></div><div><h3>Shop</h3><a href="shop.html">Shoes</a><a href="shop.html">Watches</a><a href="shop.html">Clothing</a><a href="shop.html">Accessories</a></div><div><h3>Help</h3><a href="shipping.html">Shipping Policy</a><a href="returns.html">Return / Refund</a><a href="privacy.html">Privacy Policy</a><a href="faq.html">FAQ</a></div><div><h3>Contact</h3><a href="tel:+919946375868">9946375868</a><a href="mailto:kjisal16@gmail.com">kjisal16@gmail.com</a><a href="https://wa.me/919946375868">WhatsApp</a><a href="contact.html">@kaze.storez</a></div></div><div class="copy">© 2026 KAZE STOREZ. All rights reserved.</div></footer>
-<script src="app.js"></script></body></html>
+<script src="app.js"></script><button data-install-pwa hidden style="position:fixed;right:18px;bottom:82px;z-index:9999;border:0;border-radius:999px;padding:11px 16px;background:#007BFF;color:white;font-weight:700;box-shadow:0 10px 30px #007bff33">Install KAZE App</button>
+<script>
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+}
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt',e=>{
+  e.preventDefault(); deferredPrompt=e;
+  const b=document.querySelector('[data-install-pwa]');
+  if(b){b.hidden=false;b.addEventListener('click',async()=>{
+    b.hidden=true; deferredPrompt.prompt(); await deferredPrompt.userChoice; deferredPrompt=null;
+  },{once:true});}
+});
+</script></body></html>
